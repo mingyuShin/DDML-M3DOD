@@ -6,6 +6,7 @@ from lib.datasets.kitti.kitti_utils import get_affine_transform
 from lib.datasets.kitti.kitti_utils import affine_transform
 from lib.datasets.kitti.kitti_utils import Calibration
 import cv2
+import argparse
 
 def get_label(label_dir, idx):
     label_file = os.path.join(label_dir, '%06d.txt' % idx)
@@ -22,15 +23,15 @@ def get_calib(calib_dir, idx):
 
 def make_obj_depth(root_dir, all_class=False):
     if all_class:
-        obj_depth_dir = os.path.join(root_dir, "data/KITTI3D/training/obj_depth_all")
+        obj_depth_dir = os.path.join(root_dir, "data/KITTI/training/obj_depth_all")
     else:
-        obj_depth_dir = os.path.join(root_dir, "data/KITTI3D/training/obj_depth")
+        obj_depth_dir = os.path.join(root_dir, "data/KITTI/training/obj_depth")
     os.makedirs(obj_depth_dir, exist_ok=True)
-    split_file = os.path.join(root_dir, 'data/KITTI3D/ImageSets', 'trainval.txt')
+    split_file = os.path.join(root_dir, 'data/KITTI/ImageSets', 'trainval.txt')
     idx_list = [x.strip() for x in open(split_file).readlines()]
-    image_dir = os.path.join(root_dir, 'data/KITTI3D/training/image_2')
-    label_dir = os.path.join(root_dir, 'data/KITTI3D/training/label_2')                       
-    calib_dir = os.path.join(root_dir, 'data/KITTI3D/training/calib')    
+    image_dir = os.path.join(root_dir, 'data/KITTI/training/image_2')
+    label_dir = os.path.join(root_dir, 'data/KITTI/training/label_2')                       
+    calib_dir = os.path.join(root_dir, 'data/KITTI/training/calib')    
     for idx in idx_list:
         img = get_image(image_dir, int(idx))
         img_size = np.array(img.size)
@@ -70,7 +71,12 @@ def make_obj_depth(root_dir, all_class=False):
 
 
 if __name__ == '__main__':
-    path_dir = '/home/cv3/hdd'
+    parser = argparse.ArgumentParser(description="Script description")
+    parser.add_argument("--path", type=str, default='.', help="Description of arg1")
+
+    args = parser.parse_args()
+    
+    path_dir = args.path
     make_obj_depth(path_dir)
     make_obj_depth(path_dir, all_class=True)
     
