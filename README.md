@@ -77,7 +77,8 @@ The model will be evaluated automatically if the training completed. If you only
 python ../../tools/train_val.py --config kitti_example.yaml --e
 ```
 
-For ease of use, we also provide a pre-trained checkpoint, which can be used for evaluation directly. See the below table to check the performance.
+<!-- For ease of use, we also provide a pre-trained checkpoint, which can be used for evaluation directly. See the below table to check the performance. -->
+See the below table to check the performance.
 
 |                   | AP40@Easy | AP40@Mod. | AP40@Hard |
 | ----------------- | --------- | --------- | --------- |
