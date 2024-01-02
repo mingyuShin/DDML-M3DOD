@@ -8,7 +8,7 @@ By [Wonhyeok Choi](https://wonhyeok-choi.github.io/), [Mingyu Shin](https://ming
 This repository is an official implementation of the paper ['Depth-discriminative Metric Learning
 for Monocular 3D Object Detection'](https://openreview.net/forum?id=ZNBblMEP16) using ['Delving into Localization Errors for Monocular 3D Detection'](https://arxiv.org/abs/2103.16237). In this work, we address the challenge of monocular 3D object detection in RGB images by proposing a novel metric learning scheme. Our method, which does not rely on extra parameters, modules, or data, concentrates on extracting depth-discriminative features without increasing the inference time or model size.
 
-<img src="resources/example.jpg" alt="vis" style="zoom:50%;" />
+<img src="resources/example.png" alt="vis" style="zoom:50%;" />
 
 
 
@@ -16,7 +16,7 @@ for Monocular 3D Object Detection'](https://openreview.net/forum?id=ZNBblMEP16) 
 ## Usage
 
 ### Installation
-This repo is tested on our local environment (python=3.6, cuda=9.0, pytorch=1.1), and we recommend you to use anaconda to create a vitural environment:
+This repo is tested on our local environment (python=3.6, cuda=9.2, pytorch=1.10.0), and we recommend you to use anaconda to create a vitural environment:
 
 ```bash
 conda create -n qi_monodle python=3.6
